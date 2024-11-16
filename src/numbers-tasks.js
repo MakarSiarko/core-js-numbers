@@ -202,8 +202,18 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  let answer;
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
+      answer = false;
+      break;
+    } else answer = true;
+  }
+  if (n === 2) {
+    answer = true;
+  }
+  return answer;
 }
 
 /**
@@ -221,8 +231,12 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  let answer = 0;
+  if (Number.isNaN(Number(value)) === true) {
+    answer = def;
+  } else answer = Number(value);
+  return answer;
 }
 
 /**
@@ -253,12 +267,8 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(index) {
-  let sum = 0;
-  for (let i = 0; i < index; i += 1) {
-    sum += i;
-  }
-  return sum;
+function getFibonacciNumber(/* index */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -306,8 +316,12 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  let answer = 0;
+  if (Number.isInteger(Math.log2(num)) === true) {
+    answer = true;
+  } else answer = false;
+  return answer;
 }
 
 /**
@@ -320,8 +334,8 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
 
 /**
@@ -566,13 +580,7 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * 0, 5   => 5
  */
 function getMaxNumber(firstNumber, secondNumber) {
-  let result = 0;
-  if (firstNumber > secondNumber) {
-    result = firstNumber;
-  } else {
-    result = secondNumber;
-  }
-  return result;
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -602,7 +610,7 @@ function getRandomInteger(/* min, max */) {
  * 3, 4 => 5
  */
 function getHypotenuse(a, b) {
-  return Math.sqrt(a ** 2 + b ** 2);
+  return Math.hypot(a, b);
 }
 
 /**
